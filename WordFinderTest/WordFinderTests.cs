@@ -14,11 +14,11 @@ namespace WordFinderTest
         public void Find_WordsExistInMatrix_ReturnsFoundWords()
         {
             var matrix = new List<string>();
-            matrix.Add("EBCDC");
-            matrix.Add("RGWIO");
-            matrix.Add("CHILL");
-            matrix.Add("PQNSD");
-            matrix.Add("UVDXY");
+            matrix.Add("EBCDCA");
+            matrix.Add("RGWIOE");
+            matrix.Add("CHILLI");
+            matrix.Add("PQNSDO");
+            matrix.Add("UVDXYU");
             var wordFinder = new WordFinder.WordFinder(matrix);
 
             var words = new List<string> { "COLD", "WIND", "CHILL", "SNOW" };

@@ -27,10 +27,16 @@ namespace WordFinder
 
                 List<string> vertical = new List<string>();
                 List<FoundWord> found = new List<FoundWord>();
+                var firstWordLength = _matrix.First().Length;
                 //create a list that represents vertical columns
                 foreach (var w in _matrix)
                 {
                     int col = 0;
+                    //validate matrix rows has same length in all rows
+                    if (firstWordLength != w.Length)
+                    {
+                        throw new MatrixException("Matrix Error");
+                    }
                     foreach (char letra in w.ToCharArray())
                     {
                         string currentword = vertical.Count > col ? vertical[col] : "";
@@ -47,16 +53,15 @@ namespace WordFinder
                         col++;
                     }
                 }
-                if (vertical[0].Length != _matrix.First().Length)
-                {
-                    throw new MatrixException("Matrix Error");
-                }
+              
                 List<string> VerticalandHorizontalStream = _matrix.ToList();
                 VerticalandHorizontalStream.AddRange(vertical);
 
+               
 
                 foreach (var word in wordStream.Distinct())
                 {
+                   
                     int? count = VerticalandHorizontalStream.Where(l => l.Contains(word)).Count();
 
                     if (count != null && count > 0)
