@@ -39,8 +39,9 @@ namespace WordFinder
                     }
                     foreach (char letra in w.ToCharArray())
                     {
-                        string currentword = vertical.Count > col ? vertical[col] : "";
-                        string newWord = currentword + letra;
+                        //check if word already exists in vertical list
+                        string firstword = vertical.Count > col ? vertical[col] : "";
+                        string newWord = firstword + letra;
                         if (vertical.Count > col)
                         {
                             vertical[col] = newWord;
